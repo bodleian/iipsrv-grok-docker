@@ -1,11 +1,11 @@
-Docker build of IIP Image Server 1.0 with OPENJPEG 2.1
+Docker build of IIP Image Server 1.0 with Grok 1.0
 ==============================================
 
-A Dockfile deployment of IIP image server with OPENJPEG @ https://github.com/stweil/iipsrv/tree/openjpeg and https://github.com/uclouvain/openjpeg/tree/openjpeg-2.1
+A Dockfile deployment of IIP image server with OPENJPEG @ https://github.com/GrokImageCompression/grok and https://github.com/stweil/iipsrv/tree/openjpeg
 
-Docker hub respository @ https://hub.docker.com/r/bdlss/iipsrv-openjpeg-docker/
+Docker hub respository @ https://hub.docker.com/r/bdlss/iipsrv-grok-docker/
 
-Build successes are logged @ https://hub.docker.com/r/bdlss/iipsrv-openjpeg-docker/builds/
+Build successes are logged @ https://hub.docker.com/r/bdlss/iipsrv-grok-docker/builds/
 
 IIIF validator v 1.0.0 @ https://pypi.python.org/pypi/iiif-validator/1.0.0
 
@@ -14,7 +14,7 @@ Please also refer to https://github.com/moravianlibrary/iipsrv-openjpeg/issues/2
 ### Use  pre-built image
 Download image from docker hub. Defaults to `latest` tag. Docker will normally run as root unless otherwise configured.
 
-    $ sudo docker pull bdlss/iipsrv-openjpeg-docker
+    $ sudo docker pull bdlss/iipsrv-grok-docker
 
 To run the docker command without sudo, you need to add your user (who must have root privileges) to the docker group. To do this run following command:
 
@@ -23,12 +23,12 @@ To run the docker command without sudo, you need to add your user (who must have
 ### Build from scratch (optional)
 Use local Dockerfile to build image. Defaults to `latest` tag.
 
-    $ sudo docker build -t bdlss/iipsrv-openjpeg-docker .
+    $ sudo docker build -t bdlss/iipsrv-grok-docker .
 
 ### Start the container
 Defaults to `latest` tag.
 
-    $ sudo docker run -d -p 80:80 bdlss/iipsrv-openjpeg-docker
+    $ sudo docker run -d -p 80:80 bdlss/iipsrv-grok-docker
 
 This will push the docker container port 80 to your localhost port 80. Change the first parameter to 8080 if required (i.e. you already have a webserver running on your local machine).
 
