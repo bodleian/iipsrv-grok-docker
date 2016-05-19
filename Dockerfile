@@ -3,10 +3,12 @@ FROM ubuntu:14.04.3
 MAINTAINER BDLSS, Bodleian Libraries, Oxford University <calvin.butcher@bodleian.ox.ac.uk>
 ENV HOME /root 
 
-# add repo for cmake 3.2
-RUN apt-get install software-properties-common && add-apt-repository ppa:george-edison55/cmake-3.x
 # Update packages and install tools 
-RUN apt-get update -y && apt-get install -y build-essential wget cmake make git apache2 libapache2-mod-fcgid openssl libssl-dev autoconf libfcgi0ldbl libtool libjpeg-turbo8 libjpeg-turbo8-dev libtiff4-dev libpng12-0 libpng12-dev libmemcached-dev memcached liblcms2-2 liblcms2-dev libgomp1 libpthread-stubs0-dev liblzma5 liblzma-dev libjbig-dev libjbig0 libz80ex1 libz80ex-dev pkg-config
+RUN apt-get update -y && apt-get install -y build-essential wget make git apache2 libapache2-mod-fcgid openssl libssl-dev autoconf libfcgi0ldbl libtool libjpeg-turbo8 libjpeg-turbo8-dev libtiff4-dev libpng12-0 libpng12-dev libmemcached-dev memcached liblcms2-2 liblcms2-dev libgomp1 libpthread-stubs0-dev liblzma5 liblzma-dev libjbig-dev libjbig0 libz80ex1 libz80ex-dev pkg-config
+
+# Install cmake 3.2
+WORKDIR /tmp/cmake
+RUN wget http://www.cmake.org/files/v3.2/cmake-3.2.2.tar.gz && tar xf cmake-3.2.2.tar.gz && cd cmake-3.2.2 && ./configure && make && make install
 
 # Download and compile openjpeg2.1
 WORKDIR /tmp/openjpeg
