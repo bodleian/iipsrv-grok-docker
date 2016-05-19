@@ -1,4 +1,4 @@
-Docker build of IIP Image Server 1.0 with Grok 1.0
+Docker build of IIP Image Server 1.0 with Grok 1.0 on Ubuntu 14.04
 ==============================================
 
 A Dockfile deployment of IIP image server with OPENJPEG @ https://github.com/GrokImageCompression/grok and https://github.com/stweil/iipsrv/tree/openjpeg
