@@ -9,7 +9,7 @@ Build successes are logged @ https://hub.docker.com/r/bdlss/iipsrv-grok-docker/b
 
 IIIF validator v 1.0.0 @ https://pypi.python.org/pypi/iiif-validator/1.0.0
 
-Please also refer to https://github.com/moravianlibrary/iipsrv-openjpeg/issues/2
+Please also refer to https://github.com/moravianlibrary/iipsrv-openjpeg/issues/2 and https://github.com/ruven/iipsrv/pull/61#issuecomment-222381601
 
 ### Use  pre-built image
 Download image from docker hub. Defaults to `latest` tag. Docker will normally run as root unless otherwise configured.
