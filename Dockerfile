@@ -14,7 +14,7 @@ RUN wget http://www.cmake.org/files/v3.2/cmake-3.2.2.tar.gz && tar xf cmake-3.2.
 WORKDIR /tmp/openjpeg
 RUN git clone https://github.com/GrokImageCompression/grok.git ./
 RUN git checkout master
-RUN cmake . && make && make install
+RUN cmake -DCMAKE_BUILD_TYPE=Release . && make && make install
 
 RUN export USE_OPENJPEG=1
 
@@ -26,7 +26,7 @@ WORKDIR /tmp/iip
 RUN git clone https://github.com/stweil/iipsrv.git ./
 RUN git checkout openjpeg
 RUN chmod +x autogen.sh && sleep 2 && ./autogen.sh
-RUN chmod +x configure && sleep 2 && ./configure --with-openjpeg=/tmp/openjpeg && sleep 2 && make && make install
+RUN chmod +x configure && sleep 2 && ./configure 'CFLAGS=-g -O2 -Wall -Wextra' 'CXXFLAGS=-g -O2 -Wall -Wextra' 'LDFLAGS=-g' '--enable-openjpeg' && sleep 2 && make && make install
 
 # make www dir and copy iip binary into fcgi bin
 RUN mkdir -p /var/www/localhost/fcgi-bin
