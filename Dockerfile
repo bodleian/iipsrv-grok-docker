@@ -19,7 +19,7 @@ RUN cmake -DCMAKE_BUILD_TYPE=Release . && make && make install
 RUN export USE_OPENJPEG=1
 
 # add usr/local/lib to /etc/ld.so.conf and run ldconfig
-RUN printf "include /etc/ld.so.conf.d/*.conf\ninclude /usr/local/lib\n" > /etc/ld.so.conf && ldconfig
+RUN echo "/usr/local/lib" >> /etc/ld.so.conf && ldconfig
 
 # download and compile Stweil's iipsrv w/ openjpeg2.1, sleeps prevent 'Text file busy' error
 WORKDIR /tmp/iip
