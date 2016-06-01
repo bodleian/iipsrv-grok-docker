@@ -45,22 +45,24 @@ RUN mkdir -p /var/www/localhost/images/ \
 	&& chmod 777 PalaisDuLouvre.tif \
 	&& chown -R www-data:www-data /var/www/
 
+# Removed validator as Grok 1.0 not compiling with Pillow CTB 01.06.2016
+
 # install python
-RUN apt-get install -y python2.7 build-essential python-dev python-setuptools libxml2-dev libxslt1-dev
+#RUN apt-get install -y python2.7 build-essential python-dev python-setuptools libxml2-dev libxslt1-dev
 
 # get python tools
-WORKDIR /tmp/pythontools
-RUN easy_install pip \
-    && pip install bottle \
-    && pip install python-magic \
-    && pip install lxml \
-    && pip install Pillow
+#WORKDIR /tmp/pythontools
+#RUN easy_install pip \
+#    && pip install bottle \
+#    && pip install python-magic \
+#    && pip install lxml \
+#    && pip install Pillow
 
 # get IIIF validator
-WORKDIR /tmp
-RUN wget --no-check-certificate https://pypi.python.org/packages/source/i/iiif-validator/iiif-validator-1.0.0.tar.gz \
-	&& tar zxfv iiif-validator-1.0.0.tar.gz \
-	&& rm iiif-validator-1.0.0.tar.gz
+#WORKDIR /tmp
+#RUN wget --no-check-certificate https://pypi.python.org/packages/source/i/iiif-validator/iiif-validator-1.0.0.tar.gz \
+#	&& tar zxfv iiif-validator-1.0.0.tar.gz \
+#	&& rm iiif-validator-1.0.0.tar.gz
 
 EXPOSE 80
 
