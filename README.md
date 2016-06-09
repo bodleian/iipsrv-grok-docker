@@ -48,8 +48,23 @@ To get to the container command line use:
 docker ps
 docker exec -it <container ID> /bin/bash
 ```
+After starting the container, you can IIIF validate your images from the container command line:
 
-Removed validator as Pillow currently not compiling w/ Grok 1.0.
+To get to the container command line use:
+
+```bash
+sudo docker ps
+sudo docker exec -it <container ID> /bin/bash
+```
+
+Then for an image served at `http://localhost:8080/<prefix>/<image_id>` the validator can be run with:
+
+    $ python /tmp/iiif-validator-1.0.0/iiif-validate.py -s localhost:8080 -p <prefix> -i <image_id> --version=2.0 -v
+
+e.g.
+
+    $ python /tmp/iiif-validator-1.0.0/iiif-validate.py -s localhost:80 -p "fcgi-bin/iipsrv.fcgi?IIIF=" -i 67352ccc-d1b0-11e1-89ae-279075081939.jp2 --version=2.0 -v
+
 
 ### Documentation and examples
 
