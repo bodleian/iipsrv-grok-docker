@@ -46,14 +46,13 @@ RUN mkdir -p /var/www/localhost/images/ \
 	&& chown -R www-data:www-data /var/www/
 
 # install python
-RUN apt-get install -y python2.7 build-essential python-dev python-setuptools libxml2-dev libxslt1-dev
+RUN apt-get install -y python-dev build-essential python-setuptools libxml2-dev libxslt1-dev
 
-# get python tools
+# get validator framework
 RUN easy_install pip \
     && pip install bottle \
     && pip install python-magic \
     && pip install lxml \
-    && pip install Pillow
 
 # get IIIF validator
 WORKDIR /tmp
