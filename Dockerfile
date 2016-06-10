@@ -4,7 +4,7 @@ MAINTAINER BDLSS, Bodleian Libraries, Oxford University <calvin.butcher@bodleian
 ENV HOME /root 
 
 # Update packages and install tools 
-RUN apt-get update -y && apt-get install -y build-essential wget make  git gcc g++ git apache2 libapache2-mod-fcgid openssl libssl-dev autoconf libfcgi0ldbl libtool libjpeg-turbo8 libjpeg-turbo8-dev libtiff4-dev libpng12-0 libpng12-dev libmemcached-dev memcached liblcms2-2 liblcms2-dev libgomp1 libpthread-stubs0-dev liblzma5 liblzma-dev libjbig-dev libjbig0 libz80ex1 libz80ex-dev pkg-config
+RUN apt-get update -y && apt-get install -y build-essential wget make git gcc g++ git apache2 libapache2-mod-fcgid openssl libssl-dev autoconf libfcgi0ldbl libtool pkg-config
 
 # Install cmake 3.2
 WORKDIR /tmp/cmake
@@ -17,6 +17,9 @@ RUN git checkout tags/v2.1.1
 RUN cmake -DCMAKE_BUILD_TYPE=Release . && make && make install
 
 RUN export USE_OPENJPEG=1
+
+# install graphics libraries
+RUN apt-get install -y libjpeg-turbo8 libjpeg-turbo8-dev libtiff4-dev libpng12-0 libpng12-dev libmemcached-dev memcached liblcms2-2 liblcms2-dev libgomp1 libpthread-stubs0-dev liblzma5 liblzma-dev libjbig-dev libjbig0 libz80ex1 libz80ex-dev 
 
 # add usr/local/lib to /etc/ld.so.conf and run ldconfig
 RUN echo "/usr/local/lib" >> /etc/ld.so.conf && ldconfig
