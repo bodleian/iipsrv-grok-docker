@@ -58,7 +58,7 @@ RUN apt-get install -y python-dev build-essential python-setuptools libxml2-dev 
 RUN easy_install pip \
     && pip install bottle \
     && pip install python-magic \
-    && pip install lxml \
+    && pip install lxml
 
 # get IIIF validator
 WORKDIR /tmp
